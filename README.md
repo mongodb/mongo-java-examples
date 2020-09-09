@@ -8,7 +8,7 @@ The code tested with:
 The following TLS connectivity use cases are covered:
 - Java Application needs to be configured with CA certificate to validate the MongoDB Server's certificate
 - Java Application must validate the MongoDB server's certificate and to provide its Client's certificate to be validated by the MongoDB Server
-- As the previous use case, but additionally authentication with the database is made by using the Client's certificate - X509 authentication
+- As the previous use case, but additionally [authentication](http://mongodb.github.io/mongo-java-driver/4.1/driver-reactive/tutorials/authentication/) with the database is made by using the Client's certificate - [X509 authentication](https://docs.mongodb.com/manual/core/security-x.509/#x-509)
 
 In these use cases the assumption is that the CA certificate was issued privately, oppositely to the CA certificate issued by a known CA organization, as such certificates are usually stored in the `cacerts` file provided with the JRE. 
 
