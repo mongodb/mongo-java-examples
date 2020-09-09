@@ -1,5 +1,5 @@
 # mongo_tls_java
-This repository contains several examples demonstrating MongoClient configuration and establishment [TLS connectivity between the MongoDB database and MongoDB Java Driver](https://mongodb.github.io/mongo-java-driver/4.1/driver/tutorials/ssl/)
+This repository contains several examples demonstrating [MongoClient](https://mongodb.github.io/mongo-java-driver/4.1/apidocs/mongodb-driver-sync/com/mongodb/client/MongoClient.html) configuration and establishment [TLS connectivity between the MongoDB database and MongoDB Java Driver](https://mongodb.github.io/mongo-java-driver/4.1/driver/tutorials/ssl/)
 
 The code tested with:
 - MongoDB Java Driver (`mongodb-driver-sync`) [v4.1.0](https://mongodb.github.io/mongo-java-driver/4.1/)
