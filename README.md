@@ -12,7 +12,7 @@ The following TLS connectivity use cases are covered:
 
 In these use cases the assumption is that the CA certificate was issued privately, oppositely to the CA certificate issued by a known CA organization, as such certificates are usually stored in the `cacerts` file provided with the JRE. 
 
-The classes implementing the use cases are separated to two packages: 
+The classes implementing the use cases are separated into two packages: 
 - cert_store
 - sslcontext
 
@@ -20,4 +20,4 @@ Classes in the `cert_store` demonstrate configuration in which location of the c
 - `javax.net.ssl.trustStore` - points to the JKS Trust Store file holding the CA certificate
 - `javax.net.ssl.keyStore` - points to the PKCS12 Key Store file holding the Client's certificate
 
-Classes in the `sslcontext` demonstrate implementation of the same use cases but with configuration of the [MongoClient](https://mongodb.github.io/mongo-java-driver/4.1/apidocs/mongodb-driver-sync/com/mongodb/client/MongoClient.html) object with custom [SSLContext](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html)
+Classes in the `sslcontext` demonstrate implementation of the same use cases but [MongoClient](https://mongodb.github.io/mongo-java-driver/4.1/apidocs/mongodb-driver-sync/com/mongodb/client/MongoClient.html) object is configured with the custom [SSLContext](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html)
