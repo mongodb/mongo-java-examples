@@ -9,12 +9,12 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 /**
- * Connect to MongoDB with TLS connection.
- * Validate MongoDB server's certificate with the CA certificate. Present Client certificate to be validated by
+ * Connect to a MongoDB cluster with TLS connection.
+ * Validate MongoDB server's certificate with the CA certificate. Present a Client certificate to be validated by
  * the MongoDB server.
  *
- * CA certificate is stored in the JKS trust store and referenced by the JVM property - `javax.net.ssl.trustStore`
- * Client certificate is stored in the PKCS12 storage and referenced by the JVM property - `javax.net.ssl.keyStore`
+ * CA certificate is stored in the JKS trust store and referenced by the JVM property - `javax.net.ssl.trustStore`.
+ * Client certificate is stored in the PKCS12 storage and referenced by the JVM property - `javax.net.ssl.keyStore`.
  */
 public class ValidateServerPresentClientCertificate {
 

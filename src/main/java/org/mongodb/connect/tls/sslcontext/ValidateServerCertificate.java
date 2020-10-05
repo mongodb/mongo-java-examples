@@ -22,12 +22,12 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
 /**
- * Connect to MongoDB with TLS connection. Validate MongoDB server's certificate with the CA certificate.
+ * Connect to a MongoDB cluster with TLS connection. Validate MongoDB server's certificate with the CA certificate.
  *
- * Create {@link javax.net.ssl.SSLContext} with the TrustStore holding the CA certificate and
- * provide it to the MongoDB Driver
+ * Create a custom {@link javax.net.ssl.SSLContext} with the TrustStore holding the CA certificate and
+ * provide it to the MongoDB Driver.
  *
- * Client certificate is not be expected to be presented to establish the TLS connection
+ * Client certificate is not required to be presented to the MongoDB cluster to establish the TLS connection.
  */
 public class ValidateServerCertificate {
 
