@@ -1,6 +1,8 @@
 # mongo-java-examples
 This repository contains examples that demonstrate usage of [MongoDB Java Driver](https://mongodb.github.io/mongo-java-driver/) with MongoDB database.
 
+## Examples Description:
+
 ### Establish connection over TLS/SSL with MongoDB cluster
 **Package:** `org.mongodb.connect.tls`
 
