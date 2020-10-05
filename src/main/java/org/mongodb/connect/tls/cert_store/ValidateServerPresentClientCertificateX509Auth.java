@@ -1,4 +1,4 @@
-package connect.tls.cert_store;
+package org.mongodb.connect.tls.cert_store;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -13,10 +13,12 @@ import org.bson.Document;
  * Validate MongoDB server's certificate with the CA certificate. Present Client certificate to be validated by
  * the MongoDB server.
  *
+ * Use X509 certificate to authenticate with the MongoDB server
+ *
  * CA certificate is stored in the JKS trust store and referenced by the JVM property - `javax.net.ssl.trustStore`
  * Client certificate is stored in the PKCS12 storage and referenced by the JVM property - `javax.net.ssl.keyStore`
  */
-public class ValidateServerPresentClientCertificate {
+public class ValidateServerPresentClientCertificateX509Auth {
 
     static {
         String certPath = System.getProperty("cert_path");
@@ -32,7 +34,8 @@ public class ValidateServerPresentClientCertificate {
 
     public static void main(String[] args) {
 
-        String connectionString = "mongodb://admin:admin@mongoserver:27017/admin?&ssl=true";
+        // Configure MongoDB Driver to use MONGODB-X509 as authentication mechanism
+        String connectionString = "mongodb://mongoserver:27017/admin?&ssl=true&authMechanism=MONGODB-X509";
 
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(new ConnectionString(connectionString)).build();
@@ -42,7 +45,7 @@ public class ValidateServerPresentClientCertificate {
         MongoDatabase test = client.getDatabase("test");
         MongoCollection<Document> coll  = test.getCollection("coll");
 
-        // Retrieve the first document and print it
-        System.out.println(coll.find().first());
+         // Retrieve the first document and print it
+         System.out.println(coll.find().first());
     }
 }

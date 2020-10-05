@@ -1,13 +1,11 @@
-package connect.tls.sslcontext;
+package org.mongodb.connect.tls.sslcontext;
 
-import com.mongodb.Block;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.connection.SslSettings;
 import org.bson.Document;
 
 import javax.net.ssl.SSLContext;
@@ -48,9 +46,7 @@ public class ValidateServerCertificate {
 
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(new ConnectionString(connectionString))
-                .applyToSslSettings(builder -> {
-                    builder.context(sslContext);
-                })
+                .applyToSslSettings(builder -> builder.context(sslContext))
                 .build();
 
         MongoClient client = MongoClients.create(settings);

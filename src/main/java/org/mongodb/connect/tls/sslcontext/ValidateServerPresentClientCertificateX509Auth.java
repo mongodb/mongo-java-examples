@@ -1,4 +1,4 @@
-package connect.tls.sslcontext;
+package org.mongodb.connect.tls.sslcontext;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -28,7 +28,7 @@ import java.security.cert.X509Certificate;
  * Use X509 certificate to authenticate with the MongoDB server
  *
  * Create custom {@link javax.net.ssl.SSLContext} with the TrustStore holding the CA certificate and
- * and the KeyStore holding the Client certificate and provide it to the MongoDB Driver.
+ * the KeyStore holding the Client certificate and provide it to the MongoDB Driver.
  */
 public class ValidateServerPresentClientCertificateX509Auth {
 
@@ -48,9 +48,7 @@ public class ValidateServerPresentClientCertificateX509Auth {
 
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(new ConnectionString(connectionString))
-                .applyToSslSettings(builder -> {
-                    builder.context(sslContext);
-                })
+                .applyToSslSettings(builder -> builder.context(sslContext))
                 .build();
 
         MongoClient client = MongoClients.create(settings);
@@ -90,7 +88,7 @@ public class ValidateServerPresentClientCertificateX509Auth {
 
         try (
                 InputStream caInputStream = new FileInputStream(caCertPath);
-                InputStream clientInputStream = new FileInputStream(clientCertPath);
+                InputStream clientInputStream = new FileInputStream(clientCertPath)
         ) {
             // Read Client certificate from PKCS12 Key Store
             KeyStore clientKS = KeyStore.getInstance("PKCS12");
